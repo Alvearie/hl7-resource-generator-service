@@ -11,7 +11,7 @@ HL7 resource generator service transforms a given HL7 message to a bundle FHIR r
 
 The REST API for HL7 message transformation
 
-## Get list of Things
+## Transformation
 
 ### Request
 
@@ -68,7 +68,7 @@ Response body : JSON
   }]
   }
 ```
-Sending HL7 message as plain text:
+### Sending HL7 message as plain text:
 ```
  curl -X POST -H "Content-Type: text/plain" --data "MSH|^~\\&|SE050|050|PACS|050|20120912011230||ADT^A01|102|T|2.6|||AL|NE
 EVN||201209122222
