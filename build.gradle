@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'com.ibm.alvearie'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+   jcenter()
+    maven {
+     url "https://dl.bintray.com/ibm-watson-health/ibm-fhir-server-releases"
+     }
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-jersey'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') 
+	// https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-multipart
+    implementation group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: '2.29.1'
+	 // https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.15.0'
+    // https://mvnrepository.com/artifact/org.glassfish.jersey.test-framework/jersey-test-framework-core
+    testImplementation group: 'org.glassfish.jersey.test-framework', name: 'jersey-test-framework-core', version: '2.29.1'
+    // https://mvnrepository.com/artifact/org.glassfish.jersey.test-framework.providers/jersey-test-framework-provider-grizzly2
+    testImplementation group: 'org.glassfish.jersey.test-framework.providers', name: 'jersey-test-framework-provider-jdk-http', version: '2.29.1'
+    implementation 'io.github.linuxforhealth:hl7v2-fhir-converter:v1.0.1-alpha'
+    testImplementation 'org.skyscreamer:jsonassert:1.5.0'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
+
