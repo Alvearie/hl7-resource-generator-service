@@ -59,8 +59,8 @@ public class ConverterResourceTest extends JerseyTest {
   protected Application configure() {
 
     ApplicationContext context = new AnnotationConfigApplicationContext(ContextConfiguration.class);
-    return new JerseyConfig().property("contextConfig", context).register(TransformHl7Resource.class)
-        .register(MultiPartFeature.class);
+    return new JerseyConfig().property("contextConfig", context)
+        .register(TransformHl7Resource.class).register(MultiPartFeature.class);
 
   }
 
@@ -88,8 +88,14 @@ public class ConverterResourceTest extends JerseyTest {
     Bundle b = (Bundle) bundleResource;
     assertThat(b.getId()).isNotNull();
     assertThat(b.getMeta().getLastUpdated()).isNotNull();
-    assertThat(b.getMeta().getSource()).contains("Message: ADT_A01, Message Control Id: 102");
+
     List<BundleEntryComponent> e = b.getEntry();
+
+    List<Resource> messageHeader =
+        e.stream().filter(v -> ResourceType.MessageHeader == v.getResource().getResourceType())
+            .map(BundleEntryComponent::getResource).collect(Collectors.toList());
+    assertThat(messageHeader).hasSize(1);
+
     List<Resource> patientResource =
         e.stream().filter(v -> ResourceType.Patient == v.getResource().getResourceType())
             .map(BundleEntryComponent::getResource).collect(Collectors.toList());
