@@ -1,8 +1,8 @@
-# ASCVD Service Helm Chart
+# HL7 Resource Generator Service Helm Chart
 
 ## Introduction
 
-This [Helm](https://github.com/kubernetes/helm) chart installs an instance of the [Alvearie ASCVD](https://github.com/Alvearie/health-analytics/tree/main/ascvd) service in a Kubernetes cluster.
+This [Helm](https://github.com/kubernetes/helm) chart installs an instance of the [Alvearie HL7 Resource Generator](https://github.com/Alvearie/hl7-resource-generator-service) service in a Kubernetes cluster.
 
 ## Pre-Requisites
 
@@ -16,36 +16,36 @@ This [Helm](https://github.com/kubernetes/helm) chart installs an instance of th
 Git clone this repository and `cd` into this directory.
 
 ```bash
-git clone https://github.com/Alvearie/health-analytics.git
-cd health-analytics/ascvd/chart/
+git clone https://github.com/Alvearie/hl7-resource-generator-service.git
+cd hl7-resource-generator-service/chart
 ```
 
 ### Install the Chart
 
-Install the helm chart with a release name `ascvd`:
+Install the helm chart:
 
 ```bash
-helm install ascvd .
+helm install <<RELEASE_NAME>> .
 ```
 
-This will install ASCVD, but it will not be exposed outside the cluster. To add an ingress for ASCVD, use:
+This will install the HL7 Resource Generator, but it will not be exposed outside the cluster. To add an ingress for the service, use:
 
 ```bash
-helm install ascvd . --set ingress.enabled=true  --set ingress.class=<<INGRESS_CLASS>> --set ingress.subdomain=<<INGRESS_SUBDOMAIN>>
+helm install <<RELEASE_NAME>> . --set ingress.enabled=true  --set ingress.class=<<INGRESS_CLASS>> --set ingress.subdomain=<<INGRESS_SUBDOMAIN>>
 ```
 
-where `<<INGRESS_CLASS>>` is the ingress class used by your cloud environment, and `<<INGRESS_SUBDOMAIN>>` is the configured subdomain you wish to use for your ASCVD ingress.
+where `<<INGRESS_CLASS>>` is the ingress class used by your cloud environment, and `<<INGRESS_SUBDOMAIN>>` is the configured subdomain you wish to use for your ingress.
 
 ### Using the Chart
 
-See [ASCVD](../README.md) for information about calling the deployed API.
+See [HL7 Resource Generator](../README.md#rest-api) for information about calling the deployed API.
 
 ## Uninstallation
 
-To uninstall/delete the `ascvd` deployment:
+To uninstall/delete the deployment:
 
 ```bash
-helm delete ascvd
+helm delete <<RELEASE_NAME>>
 ```
 
 ## Contributing
