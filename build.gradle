@@ -2,7 +2,6 @@ plugins {
 	id 'org.springframework.boot' version '2.3.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
-	id 'war'
 }
 
 group = 'com.ibm.alvearie'
@@ -18,7 +17,6 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jersey'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') 
 	// https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-multipart
