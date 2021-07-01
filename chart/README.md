@@ -11,6 +11,16 @@ This [Helm](https://github.com/kubernetes/helm) chart installs an instance of th
 
 ## Installation
 
+There are two options for installing this chart. Either deploy directly from the Helm repo, or checkout the code and deploy from your own copy.
+
+### Deploy from Helm Repo
+
+```
+helm repo add hl7-resource-generator-service https://alvearie.github.io/hl7-resource-generator-service/charts
+helm repo update
+helm install <<RELEASE_NAME>> hl7-resource-generator-service/hl7-resource-generator
+```
+
 ### Checkout the Code
 
 Git clone this repository and `cd` into this directory.
@@ -28,10 +38,14 @@ Install the helm chart:
 helm install <<RELEASE_NAME>> .
 ```
 
-This will install the HL7 Resource Generator, but it will not be exposed outside the cluster. To add an ingress for the service, use:
+### Expose HL7 Using Ingress
+
+The commands above will deploy the HL7 Resource Generator, but it will not be exposed outside the cluster. To add an ingress for the service include the following environment variables on your install commands:
 
 ```bash
-helm install <<RELEASE_NAME>> . --set ingress.enabled=true  --set ingress.class=<<INGRESS_CLASS>> --set ingress.subdomain=<<INGRESS_SUBDOMAIN>>
+--set ingress.enabled=true \
+--set ingress.class=<<INGRESS_CLASS>> \
+--set ingress.subdomain=<<INGRESS_SUBDOMAIN>>
 ```
 
 where `<<INGRESS_CLASS>>` is the ingress class used by your cloud environment, and `<<INGRESS_SUBDOMAIN>>` is the configured subdomain you wish to use for your ingress.
