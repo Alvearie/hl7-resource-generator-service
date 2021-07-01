@@ -4,7 +4,8 @@ HL7 resource generator service transforms a given HL7 message to a bundle FHIR r
 ## Starting the service:
 ```
 ./gradlew clean build --refresh-dependencies
-./gradlew bootRun
+docker build . -t <<GROUP>>/hl7-resource-generator-service:0.1.0
+docker run -p 8080:8080 <<GROUP>>/hl7-resource-generator-service:0.1.0
 ```
 
 # REST API
