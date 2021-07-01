@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: atclark/hl7-resource-generator-service
+  repository: alvearie/hl7-resource-generator-service
   pullPolicy: Always
   tag: 0.1.0
 service:

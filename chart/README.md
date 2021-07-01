@@ -16,7 +16,7 @@ There are two options for installing this chart. Either deploy directly from the
 ### Deploy from Helm Repo
 
 ```
-helm repo add hl7-resource-generator-service https://alvearie.github.io/hl7-resource-generator-service/charts
+helm repo add hl7-resource-generator-service https://alvearie.github.io/hl7-resource-generator-service/chart
 helm repo update
 helm install <<RELEASE_NAME>> hl7-resource-generator-service/hl7-resource-generator
 ```
