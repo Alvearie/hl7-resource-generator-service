@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "hl7-resource-generator.fullname" . }}
+  labels:
+    {{- include "hl7-resource-generator.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: {{ include "hl7-resource-generator.fullname" . }}
+  selector:
+    {{- include "hl7-resource-generator.selectorLabels" . | nindent 4 }}
