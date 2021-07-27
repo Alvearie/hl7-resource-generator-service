@@ -1,4 +1,4 @@
-# Default values for ascvd.
+# Default values for HL7 Resource Generator.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -14,19 +14,7 @@ service:
 
 enabled: true
 
-global:
-  ingress:
-    enabled:
-    class:
-         # IBM: public-iks-k8s-nginx
-         # Azure: addon-http-application-routing
-         # AWS: nginx
-    subdomain:
-
 ingress:
-  enabled: true
-  class:
-       # IBM: public-iks-k8s-nginx
-       # Azure: addon-http-application-routing
-       # AWS: nginx
-  subdomain:
+  enabled: false
+  class: public-iks-k8s-nginx
+  hostname:
