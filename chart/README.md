@@ -44,11 +44,10 @@ The commands above will deploy the HL7 Resource Generator, but it will not be ex
 
 ```bash
 --set ingress.enabled=true \
---set ingress.class=<<INGRESS_CLASS>> \
---set ingress.subdomain=<<INGRESS_SUBDOMAIN>>
+--set ingress.hostname=<<HOSTNAME>>
 ```
 
-where `<<INGRESS_CLASS>>` is the ingress class used by your cloud environment, and `<<INGRESS_SUBDOMAIN>>` is the configured subdomain you wish to use for your ingress.
+where `<<HOSTNAME>>` is the configured hostname you wish to use for your ingress.
 
 ### Using the Chart
 
